@@ -1,4 +1,4 @@
-package ua.kiev.prog.lesson3;
+package ua.kiev.prog.lesson4;
 
 public class Student extends Person {
     private String groupName;

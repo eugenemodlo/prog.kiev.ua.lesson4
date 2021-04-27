@@ -1,4 +1,4 @@
-package ua.kiev.prog.lesson3;
+package ua.kiev.prog.lesson4;
 
 import ua.kiev.prog.lesson3.exceptions.StudentNotAddedException;
 import ua.kiev.prog.lesson3.exceptions.StudentNotFoundException;

@@ -1,4 +1,4 @@
-package ua.kiev.prog.lesson3;
+package ua.kiev.prog.lesson4;
 
 public enum Sex {
     MALE("Male"),

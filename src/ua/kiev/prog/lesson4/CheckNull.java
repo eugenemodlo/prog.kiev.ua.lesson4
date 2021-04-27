@@ -1,4 +1,4 @@
-package ua.kiev.prog.lesson3;
+package ua.kiev.prog.lesson4;
 
 public interface CheckNull {
     int NOT_NULL = 7;
