@@ -1,7 +1,7 @@
 package ua.kiev.prog.lesson4;
 
-import ua.kiev.prog.lesson3.exceptions.StudentNotAddedException;
-import ua.kiev.prog.lesson3.exceptions.StudentNotFoundException;
+import ua.kiev.prog.lesson4.exceptions.StudentNotAddedException;
+import ua.kiev.prog.lesson4.exceptions.StudentNotFoundException;
 
 @SuppressWarnings("squid:S106")
 public class Main {
