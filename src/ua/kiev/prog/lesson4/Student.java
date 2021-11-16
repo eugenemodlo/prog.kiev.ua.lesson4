@@ -21,7 +21,7 @@ public class Student extends Person {
     @Override
     public String toString() {
         return "Student{" +
-                "Name='" + getLastName() + " " + getSecondName() + " " + getFirstName() + '\'' +
+                "Name='" + getLastName() + " " + getFirstName() + " " + getSecondName() + '\'' +
                 '}';
     }
 }

@@ -82,6 +82,6 @@ public class Person {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getFirstName(), getSecondName(), getLastName(), getSex(), getAge());
+        return Objects.hash(getLastName(), getFirstName(), getSecondName(), getAge());
     }
 }
