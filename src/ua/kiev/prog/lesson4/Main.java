@@ -71,5 +71,8 @@ public class Main {
         } catch (StudentNotFoundException e) {
             System.out.println(e.getMessage());
         }
+
+        System.out.println("STEP 7: Interactive add student");
+        group.addStudentInteractive();
     }
 }

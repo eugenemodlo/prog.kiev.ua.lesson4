@@ -4,6 +4,7 @@ import ua.kiev.prog.lesson4.exceptions.StudentNotAddedException;
 import ua.kiev.prog.lesson4.exceptions.StudentNotFoundException;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 @SuppressWarnings("squid:S106")
 public class Group {
@@ -39,6 +40,38 @@ public class Group {
                 System.out.println("student " + student.getLastName() + " " + student.getFirstName() + " added!");
                 break;
             }
+        }
+    }
+
+    public void addStudentInteractive() {
+        Student student = new Student();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Adding a new student to group!");
+        System.out.print("Enter a Last Name: ");
+        student.setLastName(scanner.nextLine());
+
+        System.out.print("Enter a First Name: ");
+        student.setFirstName(scanner.nextLine());
+
+        System.out.print("Enter a Second Name: ");
+        student.setSecondName(scanner.nextLine());
+
+        System.out.print("Enter a sex (Male/Female): ");
+        String sexStr;
+        do {
+            sexStr = scanner.nextLine();
+        } while (!sexStr.equals("Male") && !sexStr.equals("Female"));
+        student.setSex(Sex.getByString(sexStr));
+
+        System.out.print("Enter an age: ");
+        student.setAge(scanner.nextInt());
+        scanner.close();
+
+        try {
+            addStudent(student);
+        } catch (StudentNotAddedException e) {
+            e.printStackTrace();
         }
     }
 
