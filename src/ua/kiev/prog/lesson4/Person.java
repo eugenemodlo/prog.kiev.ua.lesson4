@@ -1,5 +1,7 @@
 package ua.kiev.prog.lesson4;
 
+import enumerators.Sex;
+
 import java.util.Objects;
 
 public class Person {

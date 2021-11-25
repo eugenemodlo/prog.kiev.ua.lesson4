@@ -1,4 +1,4 @@
-package ua.kiev.prog.lesson4;
+package enumerators;
 
 import java.util.HashMap;
 import java.util.Map;

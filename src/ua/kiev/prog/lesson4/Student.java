@@ -1,5 +1,7 @@
 package ua.kiev.prog.lesson4;
 
+import enumerators.Sex;
+
 public class Student extends Person {
     private String groupName;
 

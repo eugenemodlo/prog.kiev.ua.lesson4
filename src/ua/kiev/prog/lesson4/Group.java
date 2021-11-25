@@ -1,5 +1,6 @@
 package ua.kiev.prog.lesson4;
 
+import enumerators.Sex;
 import ua.kiev.prog.lesson4.exceptions.StudentNotAddedException;
 import ua.kiev.prog.lesson4.exceptions.StudentNotFoundException;
 
