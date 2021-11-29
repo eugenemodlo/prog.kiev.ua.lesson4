@@ -1,6 +1,7 @@
 package ua.kiev.prog.lesson4;
 
 import enumerators.Sex;
+import enumerators.SortOrder;
 import ua.kiev.prog.lesson4.exceptions.StudentNotAddedException;
 import ua.kiev.prog.lesson4.exceptions.StudentNotFoundException;
 
@@ -111,5 +112,9 @@ public class Group {
             }
         }
         return false;
+    }
+
+    public void sortStudentsByAge(SortOrder sortOrder) {
+        Arrays.sort(this.students, new StudentAgeComparator(sortOrder));
     }
 }
