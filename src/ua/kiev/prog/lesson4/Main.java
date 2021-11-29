@@ -1,6 +1,8 @@
 package ua.kiev.prog.lesson4;
 
 import enumerators.Sex;
+import enumerators.SortOrder;
+import enumerators.SortType;
 import ua.kiev.prog.lesson4.exceptions.StudentNotAddedException;
 import ua.kiev.prog.lesson4.exceptions.StudentNotFoundException;
 
@@ -75,5 +77,8 @@ public class Main {
 
         System.out.println("STEP 7: Interactive add student");
         group.addStudentInteractive();
+
+        System.out.println("STEP 8: Comparator test");
+        group.sortStudentsBy(SortType.AGE, SortOrder.ASC);
     }
 }
