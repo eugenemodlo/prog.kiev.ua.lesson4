@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 @SuppressWarnings("squid:S106")
-public class Group {
+public class Group implements MilitaryRecruit {
     private static final int MAX_STUDENTS_AMOUNT = 10;
     private String groupName;
     private final Student[] students = new Student[MAX_STUDENTS_AMOUNT];
@@ -116,10 +116,15 @@ public class Group {
     }
 
     public void sortStudentsBy(SortType sortType, SortOrder sortOrder) {
-        switch (sortType){
+        switch (sortType) {
             case AGE -> Arrays.sort(this.students, new StudentAgeComparator(sortOrder));
             case LAST_NAME -> Arrays.sort(this.students, new StudentLastNameComparator(sortOrder));
         }
 
+    }
+
+    @Override
+    public Student[] getRecruitersArray() {
+        return (Student[]) Arrays.stream(students).filter(item -> item.getAge() >= 18).toArray();
     }
 }
