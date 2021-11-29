@@ -6,6 +6,8 @@ import enumerators.SortType;
 import ua.kiev.prog.lesson4.exceptions.StudentNotAddedException;
 import ua.kiev.prog.lesson4.exceptions.StudentNotFoundException;
 
+import java.util.Arrays;
+
 @SuppressWarnings("squid:S106")
 public class Main {
     public static void main(String[] args) {
@@ -75,10 +77,14 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
-        System.out.println("STEP 7: Interactive add student");
-        group.addStudentInteractive();
+//        System.out.println("STEP 7: Interactive add student");
+//        group.addStudentInteractive();
 
-        System.out.println("STEP 8: Comparator test");
-        group.sortStudentsBy(SortType.AGE, SortOrder.ASC);
+//        System.out.println("STEP 8: Comparator test");
+//        group.sortStudentsBy(SortType.AGE, SortOrder.ASC);
+
+        System.out.println("STEP 9: Military interface test");
+        group.getRecruitersArray();
+//        Arrays.stream(group.getRecruitersArray()).forEach(item -> System.out.println(item));
     }
 }

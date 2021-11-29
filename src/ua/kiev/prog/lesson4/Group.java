@@ -7,6 +7,7 @@ import ua.kiev.prog.lesson4.exceptions.StudentNotAddedException;
 import ua.kiev.prog.lesson4.exceptions.StudentNotFoundException;
 
 import java.util.Arrays;
+import java.util.Objects;
 import java.util.Scanner;
 
 @SuppressWarnings("squid:S106")
@@ -125,6 +126,6 @@ public class Group implements MilitaryRecruit {
 
     @Override
     public Student[] getRecruitersArray() {
-        return (Student[]) Arrays.stream(students).filter(item -> item.getAge() >= 18).toArray();
+        return (Student[]) Arrays.stream(students).filter(Objects::nonNull).filter(item -> item.getAge() >= 18).toArray();
     }
 }
