@@ -126,6 +126,6 @@ public class Group implements MilitaryRecruit {
 
     @Override
     public Student[] getRecruitersArray() {
-        return (Student[]) Arrays.stream(students).filter(Objects::nonNull).filter(item -> item.getAge() >= 18).toArray();
+        return Arrays.stream(students).filter(Objects::nonNull).filter(item -> item.getAge() >= 18).toArray(Student[]::new);
     }
 }

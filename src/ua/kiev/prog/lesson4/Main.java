@@ -80,11 +80,10 @@ public class Main {
 //        System.out.println("STEP 7: Interactive add student");
 //        group.addStudentInteractive();
 
-//        System.out.println("STEP 8: Comparator test");
-//        group.sortStudentsBy(SortType.AGE, SortOrder.ASC);
+        System.out.println("STEP 8: Comparator test");
+        group.sortStudentsBy(SortType.AGE, SortOrder.ASC);
 
         System.out.println("STEP 9: Military interface test");
-        group.getRecruitersArray();
-//        Arrays.stream(group.getRecruitersArray()).forEach(item -> System.out.println(item));
+        Arrays.stream(group.getRecruitersArray()).forEach(item -> System.out.println(item));
     }
 }
