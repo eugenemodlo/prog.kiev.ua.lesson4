@@ -6,9 +6,11 @@ import enumerators.SortType;
 import ua.kiev.prog.lesson4.exceptions.StudentNotAddedException;
 import ua.kiev.prog.lesson4.exceptions.StudentNotFoundException;
 
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Scanner;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.*;
 
 @SuppressWarnings("squid:S106")
 public class Group implements MilitaryRecruit {
@@ -45,6 +47,14 @@ public class Group implements MilitaryRecruit {
                 break;
             }
         }
+    }
+
+    public boolean writeGroupToCsv(String pathToFile, String delimiter) throws IOException {
+            String ext = ".csv";
+            String fileName = this.groupName + ext;
+            Files.write(Paths.get(pathToFile + fileName), getCsvStudents(delimiter));
+
+        return false;
     }
 
     public void addStudentInteractive() {
@@ -127,5 +137,19 @@ public class Group implements MilitaryRecruit {
     @Override
     public Student[] getRecruitersArray() {
         return Arrays.stream(students).filter(Objects::nonNull).filter(item -> item.getAge() >= 18).toArray(Student[]::new);
+    }
+
+    private List<String> getCsvStudents(String delimiter) {
+            List<String> output = new ArrayList<>();
+        for (Student student : getStudents()) {
+            if (student != null) {
+                output.add(student.getFirstName() + delimiter +
+                        student.getSecondName() + delimiter +
+                        student.getLastName() + delimiter +
+                        student.getSex() + delimiter +
+                        student.getAge());
+            }
+        }
+        return output;
     }
 }

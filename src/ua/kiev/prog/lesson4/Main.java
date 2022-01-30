@@ -6,6 +6,7 @@ import enumerators.SortType;
 import ua.kiev.prog.lesson4.exceptions.StudentNotAddedException;
 import ua.kiev.prog.lesson4.exceptions.StudentNotFoundException;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 @SuppressWarnings("squid:S106")
@@ -85,5 +86,11 @@ public class Main {
 
         System.out.println("STEP 9: Military interface test");
         Arrays.stream(group.getRecruitersArray()).forEach(item -> System.out.println(item));
+        try {
+            group.writeGroupToCsv("Resources/", ",");
+            System.out.println("Group " + group.getGroupName() + " was saved!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
