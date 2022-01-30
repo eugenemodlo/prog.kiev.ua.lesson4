@@ -6,23 +6,43 @@ import enumerators.SortType;
 import ua.kiev.prog.lesson4.exceptions.StudentNotAddedException;
 import ua.kiev.prog.lesson4.exceptions.StudentNotFoundException;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 
 @SuppressWarnings("squid:S106")
 public class Group implements MilitaryRecruit {
     private static final int MAX_STUDENTS_AMOUNT = 10;
-    private String groupName;
     private final Student[] students = new Student[MAX_STUDENTS_AMOUNT];
+    private String groupName;
 
     public Group(String groupName) {
         this.groupName = groupName;
     }
 
-    public Group() {
+    public Group(Path pathToFile, String delimiter) throws IOException {
+        this.groupName = pathToFile.
+                getFileName().
+                toString().replaceFirst("[.][^.]+$", "");
+
+        System.out.println("Group " + this.groupName + " created!");
+        Files.readAllLines(pathToFile).forEach(str -> {
+            String[] data = str.split(delimiter);
+
+            Student student = new Student(
+                    data[0], data[1], data[2], Sex.getByString(data[3]), Integer.parseInt(data[4])
+            );
+
+            try {
+                addStudent(student);
+            } catch (StudentNotAddedException e) {
+                e.printStackTrace();
+            }
+
+        });
+
     }
 
     public Student[] getStudents() {
@@ -50,9 +70,9 @@ public class Group implements MilitaryRecruit {
     }
 
     public boolean writeGroupToCsv(String pathToFile, String delimiter) throws IOException {
-            String ext = ".csv";
-            String fileName = this.groupName + ext;
-            Files.write(Paths.get(pathToFile + fileName), getCsvStudents(delimiter));
+        String ext = ".csv";
+        String fileName = this.groupName + ext;
+        Files.write(Paths.get(pathToFile + fileName), getCsvStudents(delimiter));
 
         return false;
     }
@@ -140,7 +160,7 @@ public class Group implements MilitaryRecruit {
     }
 
     private List<String> getCsvStudents(String delimiter) {
-            List<String> output = new ArrayList<>();
+        List<String> output = new ArrayList<>();
         for (Student student : getStudents()) {
             if (student != null) {
                 output.add(student.getFirstName() + delimiter +
